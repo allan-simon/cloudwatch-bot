@@ -1,0 +1,27 @@
+[package]
+name = "cloudwatch-notifier"
+version = "0.1.0"
+authors = ["Pierre Dal-Pra <dalpra.pierre@gmail.com>"]
+
+[features]
+default = []
+dev = ["clippy"]
+
+[dependencies]
+rocket         = "0.2.8"
+rocket_codegen = "0.2.8"
+hyper          = "0.10.9"
+serde          = "1.0"
+serde_derive   = "1.0"
+serde_json     = "1.0"
+slack_api      = "0.17.0"
+clippy         = { version = "*", optional = true }
+
+[dependencies.rocket_contrib]
+version = "*"
+default-features = false
+features = ["handlebars_templates", "tera_templates"]
+
+[dev-dependencies]
+rocket   = { version = "0.2.6", features = ["testing"] }
+spectral = "0.6"

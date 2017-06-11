@@ -1,0 +1,8 @@
+write-mode                 = "overwrite"
+tab_spaces                 = 2
+reorder_imports            = true
+reorder_imported_names     = true
+condense_wildcard_suffices = true
+use_try_shorthand          = true
+normalize_comments         = true
+fn_call_width              = 100
