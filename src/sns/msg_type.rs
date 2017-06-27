@@ -8,7 +8,7 @@ pub(crate) enum MessageType {
 
 impl MessageType {
     #[allow(dead_code)]
-    fn from_string(msg_type: &str) -> Option<MessageType> {
+    fn from_str(msg_type: &str) -> Option<MessageType> {
         match msg_type {
             "Notification" => Some(MessageType::Notification),
             "SubscriptionConfirmation" => Some(MessageType::SubscriptionConfirmation),
@@ -24,9 +24,9 @@ mod tests {
 
     #[test]
     fn test_message_type_from_string_matches() {
-        let notification = MessageType::from_string("Notification").unwrap();
-        let sub_confirmation = MessageType::from_string("SubscriptionConfirmation").unwrap();
-        let unsub_confirmation = MessageType::from_string("UnsubscribeConfirmation").unwrap();
+        let notification = MessageType::from_str("Notification").unwrap();
+        let sub_confirmation = MessageType::from_str("SubscriptionConfirmation").unwrap();
+        let unsub_confirmation = MessageType::from_str("UnsubscribeConfirmation").unwrap();
 
         assert_eq!(notification, MessageType::Notification);
         assert_eq!(sub_confirmation, MessageType::SubscriptionConfirmation);
@@ -35,7 +35,7 @@ mod tests {
 
     #[test]
     fn test_message_type_from_string_no_match() {
-        let no_match = MessageType::from_string("foo");
+        let no_match = MessageType::from_str("foo");
         assert_eq!(no_match.is_some(), false);
     }
 }
