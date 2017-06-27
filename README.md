@@ -1,1 +1,1 @@
-# cloudwatch-notifier
+# cloudwatch-bot
