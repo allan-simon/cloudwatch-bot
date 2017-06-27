@@ -1,0 +1,13 @@
+[package]
+name    = "cloudwatch_bot"
+version = "0.1.0"
+authors = [
+  "Pierre Dal-Pra <dalpra.pierre@gmail.com>"
+]
+
+[features]
+default = []
+dev     = ["clippy"]
+
+[dependencies]
+clippy = { version = "*", optional = true }
