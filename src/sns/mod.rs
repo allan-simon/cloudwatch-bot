@@ -1,1 +1,1 @@
-mod model;
+mod msg_type;
