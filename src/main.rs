@@ -2,6 +2,7 @@
 //! that posts alarms updates to various chat systems.
 
 #![feature(plugin, custom_derive)]
+#![plugin(rocket_codegen)]
 
 #![cfg_attr(feature="clippy", plugin(clippy))]
 #![cfg_attr(feature="clippy", deny(clippy, clippy_pedantic))]
@@ -20,6 +21,7 @@
 
 #[macro_use]
 extern crate lazy_static;
+extern crate rocket;
 extern crate serde;
 #[macro_use]
 extern crate serde_derive;
@@ -29,10 +31,13 @@ extern crate serde_json;
 // Modules //
 /////////////
 
+mod http;
 mod sns;
 
 //////////
 // Main //
 //////////
 
-fn main() {}
+fn main() {
+    http::setup_server().launch();
+}
