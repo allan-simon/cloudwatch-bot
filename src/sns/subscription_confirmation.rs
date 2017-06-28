@@ -1,6 +1,7 @@
 use serde_json;
+use std::str::FromStr;
 
-use super::errors::JsonResult;
+use sns::errors::*;
 
 #[derive(Debug, Deserialize)]
 pub(crate) struct SubscriptionConfirmation {
@@ -12,9 +13,10 @@ pub(crate) struct SubscriptionConfirmation {
     pub timestamp: String,
 }
 
-impl SubscriptionConfirmation {
-    #[allow(dead_code)]
-    pub fn from_str(str: &str) -> JsonResult<SubscriptionConfirmation> {
+impl FromStr for SubscriptionConfirmation {
+    type Err = serde_json::Error;
+
+    fn from_str(str: &str) -> JsonResult<SubscriptionConfirmation> {
         serde_json::from_str(str)
     }
 }

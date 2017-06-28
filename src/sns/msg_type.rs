@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::str::FromStr;
 
-use super::errors::{EnumResult, ParseEnumError};
+use sns::errors::*;
 
 #[derive(Debug, PartialEq, Clone)]
 #[allow(dead_code)]
@@ -53,7 +53,7 @@ mod tests {
 
     #[test]
     fn test_message_type_from_string_no_match() {
-        let no_match = MessageType::from_str("foo");
+        let no_match: EnumResult<MessageType> ="foo".parse();
         assert_eq!(no_match.is_ok(), false);
     }
 }
