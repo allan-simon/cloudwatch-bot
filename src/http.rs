@@ -19,8 +19,8 @@ pub(crate) fn health_check_route() -> &'static str {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use rocket::testing::MockRequest;
     use rocket::http::*;
+    use rocket::testing::MockRequest;
 
     #[test]
     fn test_health_check() {

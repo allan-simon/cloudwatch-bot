@@ -1,6 +1,8 @@
 use std::collections::HashMap;
 use std::str::FromStr;
 
+use rocket::outcome::IntoOutcome;
+use rocket::request::{FromRequest, Outcome, Request};
 use sns::errors::*;
 
 #[derive(Debug, PartialEq, Clone)]
@@ -29,6 +31,22 @@ impl FromStr for MessageType {
             value: msg_type.to_string(),
             mapping: MESSAGE_TYPES.clone(),
         })
+    }
+}
+
+impl<'a, 'r> FromRequest<'a, 'r> for MessageType {
+    type Error = ParseEnumError<Self>;
+
+    fn from_request(request: &'a Request<'r>) -> Outcome<Self, Self::Error> {
+        request
+            .headers()
+            .get_one("x-amz-sns-message-type")
+            .ok_or(ParseEnumError {
+                value: "".to_string(),
+                mapping: MESSAGE_TYPES.clone(),
+            })
+            .and_then(MessageType::from_str)
+            .into_outcome()
     }
 }
 
