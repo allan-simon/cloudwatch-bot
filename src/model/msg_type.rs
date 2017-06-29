@@ -3,7 +3,7 @@ use std::str::FromStr;
 
 use rocket::outcome::IntoOutcome;
 use rocket::request::{FromRequest, Outcome, Request};
-use sns::errors::*;
+use super::errors::*;
 
 #[derive(Debug, PartialEq, Clone)]
 #[allow(dead_code)]

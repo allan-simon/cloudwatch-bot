@@ -32,7 +32,7 @@ extern crate serde_json;
 /////////////
 
 mod http;
-mod sns;
+mod model;
 
 //////////
 // Main //

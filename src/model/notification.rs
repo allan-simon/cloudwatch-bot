@@ -3,7 +3,7 @@ use serde_json;
 use std::collections::HashMap;
 use std::str::FromStr;
 
-use sns::errors::*;
+use super::errors::*;
 
 #[derive(Debug, Deserialize)]
 struct Notification {
