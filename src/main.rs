@@ -23,6 +23,9 @@
 // Extern crates //
 ///////////////////
 
+extern crate futures;
+extern crate hyper;
+extern crate hyper_tls;
 #[macro_use]
 extern crate lazy_static;
 extern crate rocket;
@@ -30,6 +33,7 @@ extern crate serde;
 #[macro_use]
 extern crate serde_derive;
 extern crate serde_json;
+extern crate tokio_core;
 
 /////////////
 // Modules //
@@ -37,6 +41,7 @@ extern crate serde_json;
 
 mod http;
 mod model;
+mod services;
 
 //////////
 // Main //
