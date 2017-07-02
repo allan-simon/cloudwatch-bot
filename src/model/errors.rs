@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use std::fmt::{Display, Error, Formatter};
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub(crate) struct ParseEnumError<V> {
+pub struct ParseEnumError<V> {
     pub value: String,
     pub mapping: HashMap<&'static str, V>,
 }

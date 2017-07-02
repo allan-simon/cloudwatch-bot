@@ -6,8 +6,7 @@ use rocket::outcome::IntoOutcome;
 use rocket::request::{FromRequest, Outcome, Request};
 
 #[derive(Debug, PartialEq, Clone)]
-#[allow(dead_code)]
-pub(crate) enum MessageType {
+pub enum MessageType {
     Notification,
     SubscriptionConfirmation,
     UnsubscribeConfirmation,

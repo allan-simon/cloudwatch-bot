@@ -7,14 +7,12 @@ use tokio_core::reactor::Core;
 use model::SubscriptionConfirmation;
 
 #[derive(Debug)]
-#[allow(unused)]
-pub(crate) enum SubscriptionConfirmationError {
+pub enum SubscriptionConfirmationError {
     BadStatus(StatusCode),
     HttpError(HyperError),
 }
 
-#[allow(unused)]
-pub(crate) fn confirm_subscription(
+pub fn confirm_subscription(
     client: &Client<HttpsConnector<HttpConnector>>,
     core: &mut Core,
     sub_confirmation: &SubscriptionConfirmation,
