@@ -1,9 +1,9 @@
 use std::collections::HashMap;
 use std::str::FromStr;
 
+use super::errors::*;
 use rocket::outcome::IntoOutcome;
 use rocket::request::{FromRequest, Outcome, Request};
-use super::errors::*;
 
 #[derive(Debug, PartialEq, Clone)]
 #[allow(dead_code)]
