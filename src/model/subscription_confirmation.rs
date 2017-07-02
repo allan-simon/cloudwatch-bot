@@ -4,9 +4,9 @@ use std::str::FromStr;
 use super::errors::*;
 
 #[derive(Debug, Deserialize)]
-pub(crate) struct SubscriptionConfirmation {
+pub struct SubscriptionConfirmation {
     #[serde(rename = "TopicArn")]
-    topic_arn: String,
+    pub topic_arn: String,
     #[serde(rename = "SubscribeURL")]
     pub subscribe_url: String,
     #[serde(rename = "Timestamp")]
