@@ -10,7 +10,7 @@ pub(crate) struct ParseEnumError<V> {
 
 impl<V> Display for ParseEnumError<V> {
     fn fmt(&self, fmt: &mut Formatter) -> Result<(), Error> {
-        let keys: Vec<&'static str> = self.mapping.keys().map(|v| v.clone()).collect();
+        let keys: Vec<&'static str> = self.mapping.iter().map(|(k, _)| (*k)).collect();
         write!(fmt, "'{}' does not match allowed enum values: {}", self.value, keys.join(" | "))
     }
 }

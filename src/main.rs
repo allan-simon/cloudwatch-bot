@@ -8,6 +8,10 @@
 #![cfg_attr(feature="clippy", deny(clippy, clippy_pedantic))]
 #![cfg_attr(feature="clippy", allow(missing_docs_in_private_items))]
 
+// Clippy false positives
+#![cfg_attr(feature="clippy", allow(needless_pass_by_value))]
+#![cfg_attr(feature="clippy", allow(used_underscore_binding))]
+
 #![deny(
   warnings, bad_style, unused, future_incompatible,
   trivial_casts, trivial_numeric_casts,
